@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+}
+
+.sprite {
+    height: 24px;
+    width: 24px;
+}
+
+.more {
+    background-repeat: no-repeat;
+    background-position: -338px -324px;
+}
+
+.modal {
+    width: 440px !important;
+    position: relative;
+    top: calc(50% - 82px) !important;
+}
+
+.story-bar {
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    width: 23vw;
+    position: absolute;
+    top: 134px;
+    left: 64vw;
+    padding: 5px;
+    font-size: 13.5px;
+}
+
+.name-cont {
+    display: flex;
+    flex-direction: column;
+}
+
+.ava-cont {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
