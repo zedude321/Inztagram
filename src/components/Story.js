@@ -122,4 +122,4 @@ const Story = (props) => {
     )
 }
 
-export default Story;
+export default Story;   
