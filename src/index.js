@@ -6,13 +6,36 @@ import stories from './data'
 
 const Index = () => {
      const [change, setChange] = useState(false);
-     const [story, setStory] = useState(0)
+     const [posts, setPosts] = useState([]);
+     const [stories, setStories] = useState([]);
+     const listenForPosts = () => {
+          firestore.collection(`postsImNotGoingToRead`).onSnapshot((snapshot) => {
+               const allPosts = [];
+               snapshot.forEach((doc) => allPosts.push(doc.data()));
+
+               setPosts(allPosts);
+          })
+     }
+
+     const listenForStories = () => {
+          firestore.collection(`storiesImNotGoingToRead`).onSnapshot((snapshot) => {
+               const allStories = [];
+               snapshot.forEach((doc) => allStories.push(doc.data()));
+
+               setStories(allStories);
+          });
+     }
+
+     useEffect(() => {
+          listenForPosts();
+          listenForStories();
+     }, [])
 
      return (
           <>
                {change == false ?
-                    <App sets={setStory} stories={stories} c={change} setC={setChange} /> :
-                    <Story set={story} sets={setStory} {...stories[story]} c={change} setC={setChange} />}
+                    <App posts={posts} stories={stories} c={change} setC={setChange} /> :
+                    <Story set={story} stories={stories} c={change} setC={setChange} />}
           </>
      )
 }

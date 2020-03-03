@@ -13,10 +13,6 @@ const Story = (props) => {
                 carouselInstance.current.next();
                 setPid(pid + 1);
                 setComplete(0);
-                if (pid == props.storyUrls.length -1) {
-                    console.log('INNN')
-                    props.sets(props.set + 1)
-                }
             }
             return complete;
         }
